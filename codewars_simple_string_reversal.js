@@ -14,6 +14,28 @@ More examples in the test cases. All input will be lower case letters and in som
 Good luck!
 */
 
-function solve(str){
-   //..
+const solve = (str) => {
+   let indexObj = {};
+   let string = '';
+   for(let i = 0; i < str.length; i++) {
+      if(str[i] === ' ') {
+         indexObj[i] = i;
+      }
+   }
+  console.log(indexObj);
+   for(let i = str.length - 1; i > -1; i--) {
+     console.log(indexObj[i]);
+      if(string[indexObj[i]] === undefined && indexObj[i] === i) {
+         string += ' ';
+        if(str[i] !== ' ') {
+          string += str[i];
+        }
+      } else {
+         if(str[i] !== ' ') {
+            string += str[i];
+         }
+      }
+   }
+
+   return string;
 }
